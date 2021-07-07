@@ -73,5 +73,6 @@ public class SpawnSystem : MonoBehaviour
 	{
 		player.gameplayCamera = _cameraManager.mainCamera.transform;
 		_cameraManager.SetupProtagonistVirtualCamera(player.transform);
+		_cameraManager.SetupProtagonistVirtualCamera(player.transform);
 	}
 }
