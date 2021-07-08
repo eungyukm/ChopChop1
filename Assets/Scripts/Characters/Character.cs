@@ -40,6 +40,7 @@ public class Character : MonoBehaviour
 		//This is 0f at the beginning of a jump and will raise to maximum 1f
 		if (!characterController.isGrounded)
 		{
+			Debug.Log("is not ground pig");
 			gravityContributionMultiplier += Time.deltaTime * gravityComebackMultiplier;
 		}
 		//Reduce the influence of the gravity while holding the Jump button

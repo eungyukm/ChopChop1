@@ -56,6 +56,7 @@ public class Protagonist : MonoBehaviour
 
 	private void OnMove(Vector2 movement)
 	{
+		Debug.Log("pig move!!");
 		if (controlsEnabled)
 			previousMovementInput = movement;
 	}
