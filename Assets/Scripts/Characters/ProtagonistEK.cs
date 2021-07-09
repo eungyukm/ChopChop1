@@ -20,6 +20,14 @@ public class ProtagonistEK : MonoBehaviour
 	{
 		inputReaderEK.moveEvent += OnMoveEvent;
 		inputReaderEK.jumpEvent += OnJumpEvent;
+		inputReaderEK.jumpCanceledEvent += OnJumpCanceled;
+	}
+
+	private void OnDisable()
+	{
+		inputReaderEK.moveEvent -= OnMoveEvent;
+		inputReaderEK.jumpEvent -= OnJumpEvent;
+		inputReaderEK.jumpCanceledEvent -= OnJumpCanceled;
 	}
 
 	private void OnJumpEvent()
@@ -27,6 +35,7 @@ public class ProtagonistEK : MonoBehaviour
 		if(enableControl)
 		{
 			Debug.Log("Jump!!");
+			characterEK.Jump();
 		}
 	}
 
@@ -39,8 +48,14 @@ public class ProtagonistEK : MonoBehaviour
 		}
 	}
 
-    // Update is called once per frame
-    void Update()
+	private void OnJumpCanceled()
+	{
+		if (enableControl)
+			characterEK.CancelJump();
+	}
+
+	// Update is called once per frame
+	void Update()
     {
 		RecalculateMovement();
     }

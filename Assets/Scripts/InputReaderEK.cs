@@ -9,6 +9,7 @@ public class InputReaderEK : ScriptableObject, GameInputEK.IPlayerActions
 {
 	public UnityAction<Vector2> moveEvent;
 	public UnityAction jumpEvent;
+	public UnityAction jumpCanceledEvent;
 
 	private GameInputEK gameInputEK;
 
@@ -31,11 +32,14 @@ public class InputReaderEK : ScriptableObject, GameInputEK.IPlayerActions
 	public void OnJump(InputAction.CallbackContext context)
 	{
 		Debug.Log("!!");
-		if(jumpEvent != null)
+		if(jumpEvent != null && context.phase == InputActionPhase.Started)
 		{
 			Debug.Log("Jump Event Called!!");
 			jumpEvent.Invoke();
 		}
+
+		if (jumpCanceledEvent != null && context.phase == InputActionPhase.Canceled)
+			jumpCanceledEvent.Invoke();
 	}
 
 	public void OnMovement(InputAction.CallbackContext context)
