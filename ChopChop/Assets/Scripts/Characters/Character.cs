@@ -15,7 +15,7 @@ public class Character : MonoBehaviour
 	[Tooltip("Adjust the friction of the slope")] public float slideFriction = 0.3f;
 	[Tooltip("Starting vertical movement when falling from a platform")] public float fallingVerticalMovement = -5f;
 
-
+	// factor(요소) 수직 중력 움직임
 	private float gravityContributionMultiplier = 0f; //The factor which determines how much gravity is affecting verticalMovement
 	private bool isJumping = false; //If true, a jump is in effect and the player is holding the jump button
 	private float jumpBeginTime = -Mathf.Infinity; //Time of the last jump

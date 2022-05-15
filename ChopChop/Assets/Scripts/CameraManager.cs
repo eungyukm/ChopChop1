@@ -6,6 +6,8 @@ public class CameraManager : MonoBehaviour
 	public InputReader inputReader;
 	public Camera mainCamera;
 	public CinemachineFreeLook freeLookVCam;
+	public float xAxisSpeed = 3000f;
+	public float yAxisSpeed = 10f;
 
 	public void SetupProtagonistVirtualCamera(Transform target)
 	{
@@ -25,7 +27,7 @@ public class CameraManager : MonoBehaviour
 
 	private void OnCameraMove(Vector2 cameraMovement)
 	{
-		freeLookVCam.m_XAxis.m_InputAxisValue = cameraMovement.x * Time.smoothDeltaTime;
-		freeLookVCam.m_YAxis.m_InputAxisValue = cameraMovement.y * Time.smoothDeltaTime;
+		freeLookVCam.m_XAxis.m_InputAxisValue = cameraMovement.x * xAxisSpeed * Time.smoothDeltaTime;
+		freeLookVCam.m_YAxis.m_InputAxisValue = cameraMovement.y * yAxisSpeed * Time.smoothDeltaTime;
 	}
 }
